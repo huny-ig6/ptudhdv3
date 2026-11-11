@@ -1,0 +1,19 @@
+description: |
+  Khi tìm sách không tồn tại, catalog-service phải trả về lỗi 404 theo Problem Details.
+
+name: getBookNotFound
+
+request:
+  method: GET
+  url: /api/v1/books/9789999999999
+
+response:
+  status: 404
+  headers:
+    Content-Type: application/problem+json
+  body:
+    type: "https://api.bookstore.vn/problems/book-not-found"
+    title: "Không tìm thấy sách"
+    status: 404
+    detail: "Không có sách ISBN 9789999999999"
+    instance: "/api/v1/books/9789999999999"
